@@ -1,0 +1,10 @@
+{% extends 'polls/base.html' %}
+{% block content1 %}
+{% if list_question %}
+    {% for question in list_question %}
+        {{question.question_text}}
+    {%endfor%}
+{%else%}
+    <p>Khong</p>
+{%endif%}
+{% endblock%}
