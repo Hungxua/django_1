@@ -2,7 +2,8 @@
 {% block content1 %}
 {% if qs %}
 <p>{{qs.question_text}}?</p>
-    <form>
+    <form action="{% url 'polls:vote' qs.id%}" method="post">
+        {% csrf_token %}
     {% for choice in qs.choice_set.all %}
         <p><input type="radio" value="{{choice.id}}" name="choice">{{choice.choice_text}}</p>
     {%endfor%}

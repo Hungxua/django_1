@@ -1,0 +1,12 @@
+{% extends 'polls/base.html' %}
+
+{% block content1 %}
+{% if qs %}
+<h1>{{qs.question_text}}</h1>
+<p>Kết quả của cuộc bình chọn là:</p>
+    {% for c in qs.choice_set.all %}
+        <p>{{c.choice_text}} : {{c.vote}}</p>
+    {%endfor%}
+
+{%endif%}
+{% endblock %}
